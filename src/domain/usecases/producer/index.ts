@@ -1,10 +1,13 @@
 import { IProducerUseCase } from "domain/interfaces";
 import { Producer } from "domain/models/Producer";
+import { IRepository } from "infra/interface";
 
 class ProducerUseCase implements IProducerUseCase {
-  
+  constructor(private readonly repository: IRepository) {}
+
   async createProducer(producer: Producer) {
-    return producer;
+    const result = await this.repository.save(producer);
+    return result;
   }
 
   async findProducer(): Promise<Producer[]> {

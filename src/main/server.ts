@@ -1,3 +1,14 @@
-import app  from './config/app';
+import EnvConfig from './config/env';
+import AppDataSource from '../infra/database/config/data-source';
+import app from './config/app';
 
-app.listen(3000, () => console.log('server running on port 3000'));
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization", err)
+  })
+
+
+app.listen(EnvConfig.SERVER_PORT, () => console.log(`server running on port ${EnvConfig.SERVER_PORT}`));
