@@ -1,4 +1,4 @@
 export interface Producer {
-  id: string
-  name: string
+  id: number;
+  name: string;
 }

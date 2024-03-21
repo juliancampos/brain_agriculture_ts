@@ -1,3 +1,4 @@
-export interface IRepository {
-  save<T>(data: T): Promise<T>
+export interface IRepository<T> {
+  save(data: T)
+  findAll()
 }

@@ -9,7 +9,7 @@ const AppDataSource = new DataSource({
   port: Number(EnvConfig.DATABASE_PORT),
   username: EnvConfig.DATABASE_USERNAME,
   password: EnvConfig.DATABASE_PASSWORD,
-  database: EnvConfig.DATABASE,
+  database: EnvConfig.DATABASE_NAME,
   synchronize: true,
   logging: false,
   entities: [Producer],

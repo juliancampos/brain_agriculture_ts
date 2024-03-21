@@ -4,9 +4,14 @@ import { Producer } from '../database/entities/Producer';
 
 const repository = AppDataSource.getRepository(Producer);
 
-class ProducerRepository implements IRepository {
-  async save<T>(data: T): Promise<any> {
-    const result = repository.create(data);
+class ProducerRepository<TParam> implements IRepository<TParam> {
+  async save(data: TParam): Promise<Producer> {
+    const result: Producer = await repository.save(data);
+    return result;
+  }
+
+  async findAll(): Promise<Producer[]> {
+    const result = repository.find();
     return result;
   }
 }

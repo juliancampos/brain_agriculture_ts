@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('producers')
 export class Producer {
@@ -7,4 +7,16 @@ export class Producer {
 
   @Column('text')
   name: string;
+
+  @Column('text')
+  documentType: string;
+  
+  @Column('text')
+  documentNumber: string;
+  
+  @CreateDateColumn({ name: 'createdAt' })
+  createdAt: Date;
+  
+  @UpdateDateColumn({ name: 'updatedAt' })
+  updatedAt: Date
 }
