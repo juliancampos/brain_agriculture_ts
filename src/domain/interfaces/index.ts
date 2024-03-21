@@ -1,4 +1,5 @@
-import { ProducerParam } from "domain/dtos";
+import { FarmParam, ProducerParam } from "domain/dtos";
+import { Farm } from "domain/models/Farm";
 import { HealthStatus } from "domain/models/HealthStatus";
 import { Producer } from "domain/models/Producer";
 
@@ -9,4 +10,9 @@ export interface IHealthStatusUseCase {
 export interface IProducerUseCase {
   createProducer(producer: ProducerParam): Promise<Producer>;
   findProducer(): Promise<Producer[]>;
+}
+
+export interface IFarmUseCase {
+  createFarm(farm: FarmParam): Promise<Farm>;
+  findFarm(): Promise<Farm[]>;
 }

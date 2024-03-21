@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Producer } from '../entities/Producer';
 import EnvConfig from '../../../main/config/env';
+import { Farm } from "../entities/Farm";
 
 const AppDataSource = new DataSource({
   type: 'postgres',
@@ -12,7 +13,7 @@ const AppDataSource = new DataSource({
   database: EnvConfig.DATABASE_NAME,
   synchronize: true,
   logging: false,
-  entities: [Producer],
+  entities: [Producer, Farm],
   migrations: ["./src/infra/database/migrations/**/*.ts"]
 });
 
