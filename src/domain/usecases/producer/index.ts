@@ -15,6 +15,10 @@ class ProducerUseCase implements IProducerUseCase {
   async findProducer(): Promise<Producer[]> {
     return this.repository.findAll();
   }
+
+  async updateProducer(id: string, data: ProducerParam): Promise<any> {
+    return this.repository.update(id, data);
+  }
 }
 
 export default ProducerUseCase;

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
+import { Producer } from "./Producer";
 
 @Entity('farms')
 export class Farm {
@@ -25,6 +26,9 @@ export class Farm {
   
   @Column('text')
   cultivation: string[];
+
+  @ManyToOne(type => Producer, producer => producer.farms)
+  producer: Producer;
   
   @CreateDateColumn({ name: 'createdAt' })
   createdAt: Date;

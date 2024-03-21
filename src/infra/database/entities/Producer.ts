@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
+import { Farm } from "./Farm";
 
 @Entity('producers')
 export class Producer {
@@ -13,6 +14,9 @@ export class Producer {
   
   @Column('text')
   documentNumber: string;
+
+  @OneToMany(() => Farm, farm => farm.producer)
+  farms: Farm[];
   
   @CreateDateColumn({ name: 'createdAt' })
   createdAt: Date;

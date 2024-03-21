@@ -9,10 +9,12 @@ export interface IHealthStatusUseCase {
 
 export interface IProducerUseCase {
   createProducer(producer: ProducerParam): Promise<Producer>;
+  updateProducer(id: string, farm: ProducerParam): Promise<Farm>;
   findProducer(): Promise<Producer[]>;
 }
 
 export interface IFarmUseCase {
   createFarm(farm: FarmParam): Promise<Farm>;
+  updateFarm(id: string, farm: FarmParam): Promise<Farm>;
   findFarm(): Promise<Farm[]>;
 }

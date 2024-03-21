@@ -7,13 +7,16 @@ class FarmUseCase implements IFarmUseCase {
   constructor(private readonly repository: IRepository<FarmParam>) {}
 
   async createFarm(farm: FarmParam): Promise<Farm> {
-    
     const result: Farm = await this.repository.save(farm);
     return result;
   }
 
   async findFarm(): Promise<Farm[]> {
     return this.repository.findAll();
+  }
+
+  async updateFarm(id: string, data: FarmParam): Promise<Farm> {
+    return this.repository.update(id, data);
   }
 }
 

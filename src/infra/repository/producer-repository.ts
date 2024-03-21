@@ -14,6 +14,11 @@ class ProducerRepository<TParam> implements IRepository<TParam> {
     const result = repository.find();
     return result;
   }
+
+  async update(id: string, data: TParam): Promise<any> {
+    const result = await repository.update(id, data);
+    return result;
+  }
 }
 
 export default ProducerRepository;

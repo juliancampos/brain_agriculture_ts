@@ -9,5 +9,14 @@ Content-Type: application/json
 {
   "name": "Julian",
   "documentType": "CPF",
-  "documentNumber" "065"
+  "documentNumber": "065"
+}
+
+###
+
+PUT http://localhost:3001/api/producer/8
+Content-Type: application/json
+
+{
+  "name": "Julian Campos"
 }
