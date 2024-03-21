@@ -1,7 +1,6 @@
 import { IRepository } from "infra/interface";
 import AppDataSource from "../../infra/database/config/data-source";
-import { Producer } from '../database/entities/Producer';
-import { Farm } from "infra/database/entities/Farm";
+import { Farm } from "../database/entities/Farm";
 
 const repository = AppDataSource.getRepository(Farm);
 

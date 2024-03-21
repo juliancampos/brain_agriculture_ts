@@ -1,17 +1,17 @@
 import { HttpRequest } from "../../protocols/http";
 import { ok } from "../../helpers/http-helper";
 import { Controller } from "../../protocols/controller";
-import { IProducerUseCase } from "../../../domain/interfaces";
+import { IFarmUseCase } from "../../../domain/interfaces";
 
-class FindProducerController implements Controller {
+class FindFarmController implements Controller {
   constructor(
-    private readonly producerUseCase: IProducerUseCase
+    private readonly farmUseCase: IFarmUseCase
   ) {}
 
   async handle(req: HttpRequest) {
-    return ok(await this.producerUseCase.findProducer());
+    return ok(await this.farmUseCase.findFarm());
   }
 
 }
 
-export default FindProducerController;
+export default FindFarmController;

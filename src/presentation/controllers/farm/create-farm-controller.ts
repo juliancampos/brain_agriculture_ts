@@ -1,18 +1,35 @@
 import { HttpRequest } from "../../protocols/http";
 import { badRequest, ok } from "../../helpers/http-helper";
 import { Controller } from "../../protocols/controller";
-import { IProducerUseCase } from "../../../domain/interfaces";
+import { IFarmUseCase } from "../../../domain/interfaces";
 
-class CreateProducerController implements Controller {
+class CreateFarmController implements Controller {
   constructor(
-    private readonly producerUseCase: IProducerUseCase
+    private readonly farmUseCase: IFarmUseCase
   ) {}
 
   async handle(req: HttpRequest) {
     try {
-      const { name, documentType, documentNumber } = req.body;
-      const producer = { name, documentType, documentNumber };
-      const result = await this.producerUseCase.createProducer(producer);
+      const {
+        name,
+        city,
+        state,
+        totalArea,
+        productiveArea,
+        vegetationArea,
+        cultivation
+      } = req.body;
+
+      const farm = {
+        name,
+        city,
+        state,
+        totalArea,
+        productiveArea,
+        vegetationArea,
+        cultivation
+      };
+      const result = await this.farmUseCase.createFarm(farm);
       return ok(result);
     } catch (error) {
       return badRequest(error);      
@@ -21,4 +38,4 @@ class CreateProducerController implements Controller {
 
 }
 
-export default CreateProducerController;
+export default CreateFarmController;

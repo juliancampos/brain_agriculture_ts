@@ -1,0 +1,17 @@
+GET http://localhost:3001/api/farms
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/farms
+Content-Type: application/json
+
+{
+  "name": "Fazend 3",
+  "city": "Caeté",
+  "state": "Minas Gerais",
+  "totalArea": "42",
+  "productiveArea": "22",
+  "vegetationArea": "20",
+  "cultivation": ["milho"]
+}
