@@ -17,4 +17,5 @@ export interface IFarmUseCase {
   createFarm(farm: FarmParam): Promise<Farm>;
   updateFarm(id: string, farm: FarmParam): Promise<Farm>;
   findFarm(): Promise<Farm[]>;
+  setProducer(id: string, producerId: number): Promise<Farm>;
 }

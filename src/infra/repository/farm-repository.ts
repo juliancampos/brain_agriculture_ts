@@ -1,10 +1,11 @@
-import { IRepository } from "infra/interface";
+import { IFarmRepository } from "infra/interface";
 import AppDataSource from "../../infra/database/config/data-source";
 import { Farm } from "../database/entities/Farm";
+import { Producer } from "infra/database/entities/Producer";
 
 const repository = AppDataSource.getRepository(Farm);
 
-class FarmRepository<TParam> implements IRepository<TParam> {
+class FarmRepository<TParam> implements IFarmRepository<TParam> {
   async save(data: TParam): Promise<Farm> {
     const result: Farm = await repository.save(data);
     return result;
@@ -18,6 +19,14 @@ class FarmRepository<TParam> implements IRepository<TParam> {
   async update(id: string, data: TParam): Promise<any> {
     const result = await repository.update(id, data);
     return result;
+  }
+
+  setProducer(id: string, producer: Producer) {
+    return repository.update(id, { producer });
+  }
+
+  findOne(id: number) {
+    return repository.findOneBy({ id });
   }
 }
 

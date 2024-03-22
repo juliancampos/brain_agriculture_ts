@@ -1,5 +1,2 @@
-export interface IRepository<T> {
-  save(data: T);
-  update(id: string, data: T);
-  findAll();
-}
+export * from "./farm-repository-interface";
+export * from "./producer-repository-interface";

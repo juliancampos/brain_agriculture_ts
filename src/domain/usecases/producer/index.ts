@@ -1,10 +1,10 @@
 import { ProducerParam } from "domain/dtos";
 import { IProducerUseCase } from "domain/interfaces";
 import { Producer } from "domain/models/Producer";
-import { IRepository } from "infra/interface";
+import { IProducerRepository } from "infra/interface";
 
 class ProducerUseCase implements IProducerUseCase {
-  constructor(private readonly repository: IRepository<ProducerParam>) {}
+  constructor(private readonly repository: IProducerRepository<ProducerParam>) {}
 
   async createProducer(producer: ProducerParam): Promise<Producer> {
     

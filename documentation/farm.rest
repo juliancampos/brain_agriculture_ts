@@ -24,3 +24,12 @@ Content-Type: application/json
 {
   "name": "Fazend 34"
 }
+
+###
+
+PUT http://localhost:3001/api/farm/3/producer
+Content-Type: application/json
+
+{
+  "producerId": "8"
+}
