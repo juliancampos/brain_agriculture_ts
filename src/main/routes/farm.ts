@@ -18,8 +18,43 @@ const updateFarmController = new UpdateFarmController(farmUseCase);
 const setProducerToFarmController = new SetProducerToFarmController(farmUseCase);
 
 export default (router: Router): void => {
+    /**
+   * @openapi
+   * /api/farms:
+   *  get:
+   *    tags:
+   *      - Farms
+   *    description: Get farms registered on database
+   *    responses:
+   *      200:
+   *        description: Array of farms
+   */
   router.get("/farms", adaptRoutes(findFarmController));
+
+    /**
+   * @openapi
+   * /api/farms:
+   *  post:
+   *    tags:
+   *      - Farms
+   *    description: Create a new farm and register on database
+   *    responses:
+   *      200:
+   *        description: a farm
+   */
   router.post("/farms", adaptRoutes(createFarmController));
+
+      /**
+   * @openapi
+   * /api/farms:
+   *  post:
+   *    tags:
+   *      - Farms
+   *    description: Create a new farm and register on database
+   *    responses:
+   *      200:
+   *        description: a farm
+   */
   router.put("/farm/:farmId", adaptRoutes(updateFarmController));
   router.put("/farm/:farmId/producer", adaptRoutes(setProducerToFarmController));
 };
